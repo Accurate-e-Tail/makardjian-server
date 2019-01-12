@@ -1,4 +1,34 @@
-const db = require('./db.js');
+var fs = require('fs');
+
+const photoGenerator = (productId) => {
+  const randomIndex = Math.floor(Math.random() * products.length);
+  const randomProduct = products[randomIndex]; 
+  let rowSet = '';
+  for (let j = 0; j < randomProduct.length; j++) {
+    if (j === 0) {
+      let row = [randomProduct[j][0], randomProduct[j][1], productId, 1].join(',');
+      row += '\r\n';
+      rowSet += row;
+    }
+    let row = [randomProduct[j][0], randomProduct[j][1], productId, 0].join(',');
+    row += '\r\n';
+    rowSet += row;
+  }
+  return rowSet;
+};
+
+const savePhotoRecord = (mainUrl, zoomUrl, productId, mainPhotoBool) => {
+  const query = `INSERT INTO photos (main_url, zoom_url, product_id, main_photo) 
+  VALUES ('${mainUrl}', '${zoomUrl}', ${productId}, ${mainPhotoBool});`;
+  connection.query(query, (err) => {
+    if (err) {
+      throw (err);
+    } else {
+      console.log('success');
+    }
+  });
+};
+
 
 const products = [];
 products.push([
@@ -41,19 +71,23 @@ products.push([
   ['https://images-na.ssl-images-amazon.com/images/I/71f0rd1qtWL._UX679_.jpg', 'https://images-na.ssl-images-amazon.com/images/I/71f0rd1qtWL._UL1000_.jpg'],
 ]);
 
-const photoGenerator = (productId) => {
-  const randomIndex = Math.floor(Math.random() * products.length);
-  const randomProduct = products[randomIndex]; 
-
-  for (let j = 0; j < randomProduct.length; j++) {
-    if (j === 0) {
-      db.savePhotoRecord(randomProduct[j][0], randomProduct[j][1], productId, 1);
-    } else {
-      db.savePhotoRecord(randomProduct[j][0], randomProduct[j][1], productId, 0);
-    }
+const fileWriter = (row) => {
+  if (row >= 10000000) {
+    return;
   }
+  let bigString = '';
+  for (let i = 1; i < 10000; i++) {
+    const tempString = photoGenerator(row + i);
+    bigString += tempString;
+  }
+  fs.appendFile('photo_csv.csv', bigString, (err) => {
+    if (err) {
+      console.log(err);
+      return;
+    }
+    const newRow = row + 10000;
+    console.log(newRow);
+    fileWriter(newRow);
+  });
 };
-
-for (let i = 1; i < 30000; i++) {
-  photoGenerator(i);
-}
+fileWriter(0);
