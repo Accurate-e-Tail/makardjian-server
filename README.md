@@ -1,12 +1,12 @@
 # Project Name
 
-> Project description
+> Acurate-e-Tail product overview component
 
 ## Related Projects
 
-  - https://github.com/ChampsOfTheSun/reviews-service
-  - https://github.com/ChampsOfTheSun/vrtobar-service
-  - https://github.com/ChampsOfTheSun/jhods16-service
+  - https://github.com/Accurate-e-Tail/reviews-service
+  - https://github.com/Accurate-e-Tail/vrtobar-service
+  - https://github.com/Accurate-e-Tail/jhods16-service
 
 ## Table of Contents
 
