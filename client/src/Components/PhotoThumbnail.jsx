@@ -6,14 +6,13 @@ class PhotoThumbnail extends React.Component {
     this.state = {
       focusThumbnail: {},
     };
-    // console.log(props)
   }
 
   componentDidMount() {
     this.setHighlightedThumbnail(this.props.highlightedThumbnail)
   }
 
-  //sets local state of highlightedThumbnail when the component mounts
+  //  sets local state of highlightedThumbnail when the component mounts
   setHighlightedThumbnail(thumbnail) {
       this.setState({
         focusThumbnail: thumbnail,

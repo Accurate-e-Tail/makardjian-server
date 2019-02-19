@@ -44,7 +44,7 @@ test('photoSideBar starts as an empty array', () => {
     expect(initialPhotoSideBarState).toMatchObject([]);
 });
 
-//currently the mainPhoto property on the wrapper's state is not updating so this test fails.
+
 test('mainPhoto changes on mouseEnter', () => {
     const wrapper = setup();
     const intitialMainPhoto = wrapper.state('mainPhoto');

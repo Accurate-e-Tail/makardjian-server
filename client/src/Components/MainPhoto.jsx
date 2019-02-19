@@ -23,7 +23,6 @@ class MainPhoto extends React.Component {
         y: -y + 200,
       })
     }
-    // console.log(this.state.x, this.state.y);
   }
 
   render() {

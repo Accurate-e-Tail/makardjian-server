@@ -29,7 +29,6 @@ class App extends React.Component {
       });
     })
     .then(() => {
-      // console.log(this.state.photoSideBar)
       this.state.photoSideBar.forEach(photo => {
         if (photo.main_photo === 1) {
           this.setState({
@@ -79,7 +78,4 @@ class App extends React.Component {
 };
 
 export default App;
-
-//Note: 
-  //The reason there is a this.state.currentDescription is b/c I was having trouble parsing the description in child components.
   
