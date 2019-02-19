@@ -22,7 +22,6 @@
   1. 'npm run start' (starts a node server on port 3004)
   2. 'npm run schema' (enter your own mySql password when prompted)
   3. 'npm run seed-products' (seeds the products table)
-  4. 'npm run seed-photos' (seeds the photos table)
 
 ## Requirements
 
