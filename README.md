@@ -16,13 +16,12 @@
 
 ## SetUp Instructions
 
-> Navigate to db/db.js to configure the mySql username and password to match your local machine
-> From the root of the directory run the following commands:
-  > 'npm run start' (starts a nodemon server on port 3004)
-  > 'npm run schema' 
-    >Enter your own mySql password when prompted
-  > 'npm run seed-products' (seeds the products table)
-  > 'npm run seed-photos' (seeds the photos table)
+- Navigate to db/db.js to configure the mySql username and password to match your local machine
+- From the root of the directory run the following commands:
+  1. 'npm run start' (starts a node server on port 3004)
+  2. 'npm run schema' (enter your own mySql password when prompted)
+  3. 'npm run seed-products' (seeds the products table)
+  4. 'npm run seed-photos' (seeds the photos table)
 
 ## Requirements
 
