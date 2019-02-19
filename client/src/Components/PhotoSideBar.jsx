@@ -14,8 +14,3 @@ const PhotoSideBar = (props) => {
 };
 
 export default PhotoSideBar;
-
-/*
-12/28/18:
-For some reason highlightedThumbnail is not being passed down to the next component
-*/
